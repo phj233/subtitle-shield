@@ -511,6 +511,12 @@ https://raw.githubusercontent.com/phj233/subtitle-shield/greasyfork/subtitle-shi
 
 - `.github/workflows/greasyfork.yml` 会从 `main` 构建并 force-push `greasyfork` 分支。若 GitHub Actions 无法推送，检查仓库 `Workflow permissions` 是否允许写入。
 - Greasy Fork 详情页长文档不会自动从 `README.md` / `README.en.md` 切换；多语言标题和简介优先用 `@name:en`、`@description:en`、`@name:zh-CN`、`@description:zh-CN` 等 metadata。
+- Greasy Fork “附加信息同步”不要指向完整 README、仓库页面或脚本文件；使用 `docs/greasyfork/additional-info.zh-CN.md` 和 `docs/greasyfork/additional-info.en.md` 生成的短说明，避免超过 50,000 字符限制。
+
+```text
+https://raw.githubusercontent.com/phj233/subtitle-shield/greasyfork/additional-info.zh-CN.md
+https://raw.githubusercontent.com/phj233/subtitle-shield/greasyfork/additional-info.en.md
+```
 
 扩展发布建议：
 

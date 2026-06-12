@@ -93,7 +93,14 @@ GitHub Actions 会在 `main` 分支更新后自动构建用户脚本，并把产
 https://raw.githubusercontent.com/phj233/subtitle-shield/greasyfork/subtitle-shield.user.js
 ```
 
-在 Greasy Fork 首次发布时，可以使用上面的 raw URL 导入脚本；之后在脚本管理页设置同步 URL 为同一个地址。每次发布新版本前记得递增 `@version`。
+在 Greasy Fork 首次发布时，可以使用上面的 raw URL 导入脚本；之后在脚本管理页设置脚本同步 URL 为同一个地址。每次发布新版本前记得递增 `@version`。
+
+Greasy Fork 的“附加信息同步”不要指向完整 README、仓库页面或脚本文件，否则可能超过 50,000 字符限制。请使用下面的短说明文件，并选择 Markdown：
+
+```text
+https://raw.githubusercontent.com/phj233/subtitle-shield/greasyfork/additional-info.zh-CN.md
+https://raw.githubusercontent.com/phj233/subtitle-shield/greasyfork/additional-info.en.md
+```
 
 如果 Actions 推送失败，检查 GitHub 仓库设置里的 `Settings -> Actions -> General -> Workflow permissions`，需要允许 `Read and write permissions`。
 

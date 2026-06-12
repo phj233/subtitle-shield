@@ -95,6 +95,13 @@ https://raw.githubusercontent.com/phj233/subtitle-shield/greasyfork/subtitle-shi
 
 For the first Greasy Fork release, import the script from the raw URL above. After that, set the script sync URL to the same address in the script admin page. Remember to bump `@version` before publishing a new release.
 
+Do not point Greasy Fork's synced additional info to the full README, repository page, or userscript file. It can exceed Greasy Fork's 50,000-character limit. Use these short Markdown files instead:
+
+```text
+https://raw.githubusercontent.com/phj233/subtitle-shield/greasyfork/additional-info.zh-CN.md
+https://raw.githubusercontent.com/phj233/subtitle-shield/greasyfork/additional-info.en.md
+```
+
 If the workflow cannot push the branch, check `Settings -> Actions -> General -> Workflow permissions` in the GitHub repository and allow `Read and write permissions`.
 
 ## Privacy And Limits
