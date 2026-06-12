@@ -256,10 +256,12 @@ const messages = {
 ```js
 // ==UserScript==
 // @name         Subtitle Shield
+// @name:en      Subtitle Shield
 // @name:zh-CN   Subtitle Shield
 // @namespace    https://github.com/phj233/subtitle-shield
 // @version      0.1.0
 // @description  Hide, blur, or flip YouTube and Bilibili captions so language learners listen first.
+// @description:en Hide, blur, or flip YouTube and Bilibili captions so language learners listen first.
 // @description:zh-CN 为 YouTube 和 Bilibili 字幕增加模糊、倒置、隐藏、延迟和暂停显示模式，帮助语言学习者先听再看。
 // @license      MIT
 // @homepageURL  https://github.com/phj233/subtitle-shield
@@ -508,7 +510,7 @@ https://raw.githubusercontent.com/phj233/subtitle-shield/greasyfork/subtitle-shi
 ```
 
 - `.github/workflows/greasyfork.yml` 会从 `main` 构建并 force-push `greasyfork` 分支。若 GitHub Actions 无法推送，检查仓库 `Workflow permissions` 是否允许写入。
-- Greasy Fork 详情页长文档不会自动从 `README.md` / `README.en.md` 切换；多语言标题和简介优先用 `@name:zh-CN`、`@description:zh-CN` 等 metadata。
+- Greasy Fork 详情页长文档不会自动从 `README.md` / `README.en.md` 切换；多语言标题和简介优先用 `@name:en`、`@description:en`、`@name:zh-CN`、`@description:zh-CN` 等 metadata。
 
 扩展发布建议：
 
