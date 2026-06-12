@@ -85,6 +85,18 @@ The production build emits a single userscript file:
 dist/subtitle-shield.user.js
 ```
 
+## Greasy Fork Publishing
+
+GitHub Actions automatically builds the userscript when `main` changes and publishes the output to the `greasyfork` branch:
+
+```text
+https://raw.githubusercontent.com/phj233/subtitle-shield/greasyfork/subtitle-shield.user.js
+```
+
+For the first Greasy Fork release, import the script from the raw URL above. After that, set the script sync URL to the same address in the script admin page. Remember to bump `@version` before publishing a new release.
+
+If the workflow cannot push the branch, check `Settings -> Actions -> General -> Workflow permissions` in the GitHub repository and allow `Read and write permissions`.
+
 ## Privacy And Limits
 
 Subtitle Shield only changes caption presentation locally and does not send network requests. YouTube and Bilibili can change player DOM at any time. The script uses scoped `MutationObserver` listeners and multiple selector fallbacks, but site-specific selectors may still need maintenance after platform updates.

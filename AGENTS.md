@@ -21,7 +21,9 @@ Subtitle Shield 是一个面向语言学习者的字幕辅助工具。它通过�
 - `src/ui/`：页面内设置面板。
 - `src/userscript/`：GM 存储和菜单适配层。
 - `tests/`：Vitest 单元测试。
-- `README.md`：面向用户的安装、功能和开发说明。
+- `.github/workflows/greasyfork.yml`：构建用户脚本并发布到 `greasyfork` 分支，供 Greasy Fork 同步。
+- `README.md`：中文用户文档。
+- `README.en.md`：英文用户文档。
 
 如果后续代码结构与本文件不一致，先阅读实际代码，再更新本文件。不要机械套用过期说明。
 
@@ -254,9 +256,11 @@ const messages = {
 ```js
 // ==UserScript==
 // @name         Subtitle Shield
+// @name:zh-CN   Subtitle Shield
 // @namespace    https://github.com/phj233/subtitle-shield
 // @version      0.1.0
 // @description  Hide, blur, or flip YouTube and Bilibili captions so language learners listen first.
+// @description:zh-CN 为 YouTube 和 Bilibili 字幕增加模糊、倒置、隐藏、延迟和暂停显示模式，帮助语言学习者先听再看。
 // @license      MIT
 // @homepageURL  https://github.com/phj233/subtitle-shield
 // @supportURL   https://github.com/phj233/subtitle-shield/issues
@@ -497,6 +501,14 @@ README 面向用户，本文件面向 agent。不要把 agent 工作细节塞进
 - 每次改变用户可见行为时更新版本。
 - 生成单文件 userscript 产物，方便复制安装。
 - 产物文件建议命名为 `subtitle-shield.user.js`。
+- Greasy Fork 同步地址应指向 `greasyfork` 分支根目录产物：
+
+```text
+https://raw.githubusercontent.com/phj233/subtitle-shield/greasyfork/subtitle-shield.user.js
+```
+
+- `.github/workflows/greasyfork.yml` 会从 `main` 构建并 force-push `greasyfork` 分支。若 GitHub Actions 无法推送，检查仓库 `Workflow permissions` 是否允许写入。
+- Greasy Fork 详情页长文档不会自动从 `README.md` / `README.en.md` 切换；多语言标题和简介优先用 `@name:zh-CN`、`@description:zh-CN` 等 metadata。
 
 扩展发布建议：
 
