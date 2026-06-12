@@ -1,9 +1,11 @@
 // ==UserScript==
 // @name         Subtitle Shield
+// @name:en      Subtitle Shield
 // @name:zh-CN   Subtitle Shield
 // @namespace    https://github.com/phj233/subtitle-shield
 // @version      0.1.0
 // @description  Hide, blur, or flip YouTube and Bilibili captions so language learners listen first.
+// @description:en Hide, blur, or flip YouTube and Bilibili captions so language learners listen first.
 // @description:zh-CN 为 YouTube 和 Bilibili 字幕增加模糊、倒置、隐藏、延迟和暂停显示模式，帮助语言学习者先听再看。
 // @license      MIT
 // @homepageURL  https://github.com/phj233/subtitle-shield
