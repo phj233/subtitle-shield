@@ -60,6 +60,8 @@ jobs:
           find . -mindepth 1 -maxdepth 1 ! -name .git -exec rm -rf {} +
 
           cp ../dist/subtitle-shield.user.js ./subtitle-shield.user.js
+          cp ../docs/greasyfork/additional-info.zh-CN.md ./additional-info.zh-CN.md
+          cp ../docs/greasyfork/additional-info.en.md ./additional-info.en.md
           cat > README.md <<'README'
           # Subtitle Shield Greasy Fork Build
 
@@ -69,6 +71,13 @@ jobs:
 
           ```text
           https://raw.githubusercontent.com/phj233/subtitle-shield/greasyfork/subtitle-shield.user.js
+          ```
+
+          Synced additional info URLs:
+
+          ```text
+          https://raw.githubusercontent.com/phj233/subtitle-shield/greasyfork/additional-info.zh-CN.md
+          https://raw.githubusercontent.com/phj233/subtitle-shield/greasyfork/additional-info.en.md
           ```
           README
 
