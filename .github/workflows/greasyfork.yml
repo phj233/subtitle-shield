@@ -1,0 +1,82 @@
+name: Publish Greasy Fork build
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: greasyfork-publish
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    name: Build and publish userscript
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build userscript
+        run: npm run build
+
+      - name: Publish to greasyfork branch
+        run: |
+          set -euo pipefail
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          rm -rf publish-worktree
+
+          if git ls-remote --exit-code --heads origin greasyfork >/dev/null 2>&1; then
+            git fetch origin greasyfork
+            git worktree add --force publish-worktree origin/greasyfork
+            cd publish-worktree
+            git switch -C greasyfork origin/greasyfork
+          else
+            git worktree add --detach publish-worktree
+            cd publish-worktree
+            git switch --orphan greasyfork
+          fi
+
+          git rm -r --ignore-unmatch . >/dev/null 2>&1 || true
+          find . -mindepth 1 -maxdepth 1 ! -name .git -exec rm -rf {} +
+
+          cp ../dist/subtitle-shield.user.js ./subtitle-shield.user.js
+          cat > README.md <<'README'
+          # Subtitle Shield Greasy Fork Build
+
+          This branch is generated automatically from `main`.
+
+          Greasy Fork sync URL:
+
+          ```text
+          https://raw.githubusercontent.com/phj233/subtitle-shield/greasyfork/subtitle-shield.user.js
+          ```
+          README
+
+          git add -A
+
+          if git diff --cached --quiet; then
+            echo "No Greasy Fork build changes to publish."
+          else
+            git commit -m "build(greasyfork): publish userscript"
+            git push origin greasyfork --force-with-lease
+          fi
