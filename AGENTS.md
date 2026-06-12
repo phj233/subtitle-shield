@@ -257,6 +257,7 @@ const messages = {
 // @namespace    https://github.com/phj233/subtitle-shield
 // @version      0.1.0
 // @description  Hide, blur, or flip YouTube and Bilibili captions so language learners listen first.
+// @license      MIT
 // @homepageURL  https://github.com/phj233/subtitle-shield
 // @supportURL   https://github.com/phj233/subtitle-shield/issues
 // @match        https://www.youtube.com/*
