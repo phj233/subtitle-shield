@@ -505,13 +505,13 @@ function createSelect<T extends string>(
   text.textContent = label
 
   const select = document.createElement('select')
-  select.value = value
   for (const optionValue of options) {
     const option = document.createElement('option')
     option.value = optionValue
     option.textContent = labelFor(optionValue)
     select.append(option)
   }
+  select.value = value
   select.addEventListener('change', () => {
     void onChange(select.value as T)
   })

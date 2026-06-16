@@ -1,6 +1,6 @@
 export const STYLE_ID = 'subtitle-shield-style'
 
-const stylesheet = `
+export const SUBTITLE_SHIELD_STYLESHEET = `
 .ss-caption-root {
   --ss-blur-px: 6px;
   --ss-offset-y: 0px;
@@ -18,6 +18,8 @@ const stylesheet = `
 }
 
 .ss-caption-root.ss-enabled.ss-mode-flip:not(.ss-revealing):not(.ss-video-paused) {
+  filter: blur(var(--ss-blur-px)) !important;
+  opacity: 0.82 !important;
   rotate: 180deg !important;
 }
 
@@ -301,6 +303,6 @@ export function injectStyles(documentRef = document): void {
 
   const style = documentRef.createElement('style')
   style.id = STYLE_ID
-  style.textContent = stylesheet
+  style.textContent = SUBTITLE_SHIELD_STYLESHEET
   documentRef.head.append(style)
 }
