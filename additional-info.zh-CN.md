@@ -6,7 +6,7 @@ Subtitle Shield 是一个面向语言学习者的 YouTube 和 Bilibili 字幕辅
 
 - 支持 YouTube 和 Bilibili。
 - 支持全局启用/禁用，也支持分别控制两个站点。
-- 字幕模式包括模糊、倒置、隐藏、仅暂停时显示、延迟显示。
+- 字幕模式包括模糊、倒置叠加模糊、隐藏、仅暂停时显示、延迟显示。
 - 可配置模糊强度、延迟时间和 Bilibili 字幕位置偏移。
 - 按住快捷键可以临时显示字幕。
 - 可选鼠标悬停字幕区域时显示。
@@ -20,4 +20,3 @@ Subtitle Shield 是一个面向语言学习者的 YouTube 和 Bilibili 字幕辅
 项目源码：
 
 https://github.com/phj233/subtitle-shield
-

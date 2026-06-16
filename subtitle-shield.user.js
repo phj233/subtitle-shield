@@ -3,7 +3,7 @@
 // @name:en      Subtitle Shield
 // @name:zh-CN   Subtitle Shield
 // @namespace    https://github.com/phj233/subtitle-shield
-// @version      0.1.0
+// @version      0.2.0
 // @description  Hide, blur, or flip YouTube and Bilibili captions so language learners listen first.
 // @description:en Hide, blur, or flip YouTube and Bilibili captions so language learners listen first.
 // @description:zh-CN 为 YouTube 和 Bilibili 字幕增加模糊、倒置、隐藏、延迟和暂停显示模式，帮助语言学习者先听再看。
@@ -38,7 +38,7 @@
 			languageEn: "English",
 			mode: "Caption mode",
 			modeBlur: "Blur",
-			modeFlip: "Flip",
+			modeFlip: "Flip + blur",
 			modeHide: "Hide",
 			modePauseOnly: "Pause only",
 			modeDelay: "Delay",
@@ -75,7 +75,7 @@
 			languageEn: "英文",
 			mode: "字幕模式",
 			modeBlur: "模糊",
-			modeFlip: "倒置",
+			modeFlip: "倒置 + 模糊",
 			modeHide: "隐藏",
 			modePauseOnly: "仅暂停",
 			modeDelay: "延迟",
@@ -275,7 +275,7 @@
 	//#endregion
 	//#region src/core/styles.ts
 	var STYLE_ID = "subtitle-shield-style";
-	var stylesheet = `
+	var SUBTITLE_SHIELD_STYLESHEET = `
 .ss-caption-root {
   --ss-blur-px: 6px;
   --ss-offset-y: 0px;
@@ -293,6 +293,8 @@
 }
 
 .ss-caption-root.ss-enabled.ss-mode-flip:not(.ss-revealing):not(.ss-video-paused) {
+  filter: blur(var(--ss-blur-px)) !important;
+  opacity: 0.82 !important;
   rotate: 180deg !important;
 }
 
@@ -572,7 +574,7 @@
 		if (documentRef.getElementById("subtitle-shield-style")) return;
 		const style = documentRef.createElement("style");
 		style.id = STYLE_ID;
-		style.textContent = stylesheet;
+		style.textContent = SUBTITLE_SHIELD_STYLESHEET;
 		documentRef.head.append(style);
 	}
 	//#endregion
@@ -1296,13 +1298,13 @@
 		text.className = "ss-panel__label";
 		text.textContent = label;
 		const select = document.createElement("select");
-		select.value = value;
 		for (const optionValue of options) {
 			const option = document.createElement("option");
 			option.value = optionValue;
 			option.textContent = labelFor(optionValue);
 			select.append(option);
 		}
+		select.value = value;
 		select.addEventListener("change", () => {
 			onChange(select.value);
 		});
