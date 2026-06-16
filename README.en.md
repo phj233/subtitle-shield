@@ -10,7 +10,7 @@ It does not download captions, bypass platform restrictions, or upload viewing h
 
 | Capability | Details |
 | --- | --- |
-| Multiple caption modes | Blur, flip, hide, pause-only, and delay |
+| Multiple caption modes | Blur, flip with blur, hide, pause-only, and delay |
 | Fast temporary reveal | Hold a shortcut to restore captions, defaulting to `Alt` |
 | Per-site control | Enable or disable YouTube and Bilibili separately |
 | Live tuning | Blur strength, delay time, and vertical caption position apply immediately |
@@ -39,7 +39,7 @@ After installation, open a YouTube or Bilibili video page and choose `Open Subti
 | Mode | Effect |
 | --- | --- |
 | `blur` | Blurs captions, the default mode |
-| `flip` | Flips captions to reduce reflexive reading |
+| `flip` | Flips captions and applies the current blur strength |
 | `hide` | Hides captions without removing native caption DOM |
 | `pauseOnly` | Hides captions during playback and reveals them while paused |
 | `delay` | Reveals captions after a configurable delay |

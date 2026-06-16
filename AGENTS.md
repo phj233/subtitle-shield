@@ -95,7 +95,7 @@ MVP 应覆盖：
 - 分站点启用/禁用：YouTube、Bilibili。
 - 字幕处理模式：
   - `blur`：模糊字幕。
-  - `flip`：倒置或镜像字幕。
+  - `flip`：倒置或镜像字幕，并叠加当前模糊强度。
   - `hide`：隐藏字幕。
   - `pauseOnly`：仅在视频暂停时显示字幕。
   - `delay`：延迟显示字幕。
@@ -346,7 +346,7 @@ Bilibili 同样可能有播放器内部 DOM 变化和页面内切换。实现时
 处理规则：
 
 - `blur`：使用 `filter: blur(var(--ss-blur-px))`，必要时配合轻微 opacity。
-- `flip`：优先只作用于字幕文本容器，不要翻转整个播放器。
+- `flip`：优先只作用于字幕文本容器，不要翻转整个播放器；同时应用 `filter: blur(var(--ss-blur-px))`。
 - 字幕位置调整：使用 CSS 变量控制垂直位移，不要覆盖平台原有 `transform`。
 - `hide`：隐藏字幕文本，但不要删除字幕 DOM。
 - `pauseOnly`：播放中隐藏或模糊，暂停时显示。

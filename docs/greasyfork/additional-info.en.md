@@ -6,7 +6,7 @@ Subtitle Shield is a caption helper for language learners on YouTube and Bilibil
 
 - Supports YouTube and Bilibili.
 - Global enable/disable plus per-site toggles.
-- Caption modes: blur, flip, hide, pause-only, and delayed reveal.
+- Caption modes: blur, flip with blur, hide, pause-only, and delayed reveal.
 - Configurable blur strength, delay time, and Bilibili caption position offset.
 - Hold a shortcut key to temporarily reveal captions.
 - Optional hover-to-reveal behavior.
@@ -20,4 +20,3 @@ After installing the script, open a YouTube or Bilibili video page and choose "O
 Source code:
 
 https://github.com/phj233/subtitle-shield
-
